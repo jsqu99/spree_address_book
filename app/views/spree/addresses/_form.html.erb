@@ -8,6 +8,3 @@
     <%= address_field(address_form, field.to_sym, address_name) %>
   <% end %>
 <% end %>
-<% if Spree::AddressBook::Config["alternative_#{address_name}_phone"] %>
-  <%= address_field(address_form, :alternative_phone, address_name) %>
-<% end %>
