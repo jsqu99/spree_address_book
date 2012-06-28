@@ -1,6 +1,8 @@
 Spree::Address.class_eval do
   belongs_to :user
 
+  attr_accessible :deleted_at, :user_id
+
   def self.required_fields
     validator = Spree::Address.validators.find{|v| v.kind_of?(ActiveModel::Validations::PresenceValidator)}
     validator ? validator.attributes : []
