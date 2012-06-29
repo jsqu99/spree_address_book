@@ -1,0 +1,15 @@
+<% if @addresses.present? %>
+
+<% address_name = "#{address_type[0...4]}_address" %>
+
+  <div class="select_address">
+    <p class="field">
+        <% @addresses.each_with_index do |address, idx| %>
+        <span id="<%= [address_type, dom_id(address)].join('_') %>">
+          <label><%= form.radio_button "#{address_name}_id", address.id, :checked => (idx == 0) %> <%= address %></label> <%= link_to t(:edit), edit_address_path(address) %><br />
+        </span>
+        <% end %>
+        <label><%= form.radio_button "#{address_name}_id", 0 %> <%= t('other_address') %></label>
+    </p>
+  </div>
+<% end %>
