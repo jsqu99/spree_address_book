@@ -1,4 +1,5 @@
 class Spree::AddressesController < Spree::BaseController
+  ssl_allowed
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
   load_and_authorize_resource
   helper "Spree::Checkout"
